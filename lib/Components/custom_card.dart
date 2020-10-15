@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hci_freelancer_photographer/screens/job_detail_screen.dart';
+import 'package:hci_freelancer_photographer/screens/profile.dart';
 import 'package:hci_freelancer_photographer/utilities/constants.dart';
 
 class ProfilePhotographerCard extends StatelessWidget {
@@ -11,6 +13,13 @@ class ProfilePhotographerCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 14, right: 2, left: 2, bottom: 2),
       child: GestureDetector(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return ProfileScreen();
+            },
+          ));
+        },
         child: Container(
           height: 130,
           padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
@@ -47,35 +56,7 @@ class ProfilePhotographerCard extends StatelessWidget {
                         "Thanh Tu",
                         style: kTitleCard,
                       ),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star,
-                            size: 20,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 20,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 20,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star,
-                            size: 20,
-                            color: Colors.yellow,
-                          ),
-                          Icon(
-                            Icons.star_border,
-                            size: 20,
-                            color: Colors.yellow,
-                          )
-                        ],
-                      )
+                      ListStar(size: 20),
                     ],
                   ),
                   Expanded(
@@ -135,6 +116,13 @@ class JobCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.only(top: 14, right: 2, left: 2, bottom: 2),
       child: GestureDetector(
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(
+            builder: (context) {
+              return JobDetailScreen();
+            },
+          ));
+        },
         child: Container(
           padding: EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 10),
           decoration: BoxDecoration(
@@ -201,6 +189,44 @@ class JobCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ListStar extends StatelessWidget {
+  double size;
+  ListStar({this.size});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          Icons.star,
+          size: size,
+          color: Colors.yellow,
+        ),
+        Icon(
+          Icons.star,
+          size: size,
+          color: Colors.yellow,
+        ),
+        Icon(
+          Icons.star,
+          size: size,
+          color: Colors.yellow,
+        ),
+        Icon(
+          Icons.star,
+          size: size,
+          color: Colors.yellow,
+        ),
+        Icon(
+          Icons.star_border,
+          size: size,
+          color: Colors.yellow,
+        )
+      ],
     );
   }
 }
